@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="employee.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1>Employee Dashboard</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="../Tasks/tasks.html">Tasks</a></li> <!-- link to Tasks Webpage -->
+            <li><a href="#performance">Performance</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Profile Section -->
+      <section id="profile" class="profile-section card">
+        <div class="profile-header">
+          <img src="Default.png" alt="Employee Profile" class="profile-photo" />
+          <div class="profile-info">
+            <h2 id="profile-name">Employee Name</h2>
+            <p id="profile-email">Email: employee@example.com</p>
+            <p id="profile-phone">Phone: +123456789</p>
+            <p id="profile-role">Role: Role</p>
+            <p id="profile-id">Employee ID: 12345</p>
+            <button class="btn" id="edit-btn">Edit Profile</button>
+          </div>
+        </div>
+      </section>
+
+       <!-- Editable Profile Form (Initially Hidden) -->
+      <div id="edit-form" style="display: none;">
+        <h3>Edit Profile</h3>
+        <form id="profile-form">
+          <label for="edit-name">Name:</label>
+          <input type="text" id="edit-name" name="name" required /><br />
+
+          <label for="edit-email">Email:</label>
+          <input type="email" id="edit-email" name="email" required /><br />
+
+          <label for="edit-phone">Phone:</label>
+          <input type="tel" id="edit-phone" name="phone" required /><br /><br>
+
+          <label for="profile-input">Profile Picture:</label>
+          <input type="file" id="profile-input" name="profile-picture" accept="image/*" /><br /><br>
+
+          <button type="submit" class="btn" id="save-btn">Save Changes</button>
+          <button type="button" class="btn" id="cancel-btn">Cancel</button>
+        </form>
+      </div><br>
+    </section>
+
+      <!-- Schedule Section -->
+      <section id="schedule" class="schedule-section card">
+        <h2>Work Schedule</h2>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Shift Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td>9:00 AM - 5:00 PM</td>
+              <td><span class="status scheduled">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>9:00 AM - 5:00 PM</td>
+              <td><span class="status scheduled">Scheduled</span></td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>9:00 AM - 5:00 PM</td>
+                <td><span class="status scheduled">Scheduled</span></td>
+              </tr>
+            <!-- More rows as needed -->
+          </tbody>
+        </table>
+        <button class="btn timeoff-btn">Request Time Off</button>
+      </section>
+
+      <!-- Performance Section -->
+      <section id="performance" class="performance-section card">
+        <h2 style="padding: 5px;">Performance Overview</h2>
+        <div class="metrics">
+          <div class="metric">
+            <h3>Tasks Completed</h3>
+            <p>50</p>
+          </div>
+          <div class="metric">
+            <h3>Attendance Rate</h3>
+            <p>98%</p>
+          </div>
+          <div class="metric">
+            <h3>Areas for Improvement</h3>
+            <p>Communication Skills</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Task Management Section -->
+      <section id="tasks" class="task-section card">
+        <h2 style="padding: 5px;">Task List</h2>
+        <div class="task-list">
+          <div class="task-item"> <!-- Latest task -->
+            <h3>Task Title</h3>
+            <p>Deadline: 24-11-2024</p>
+            <p>Priority: High</p><br>
+            <div class="task-actions">
+              <button class="btn btn-in-progress">In Progress</button>
+              <button class="btn btn-completed">Completed</button>
+              <button class="btn btn-pending">Pending</button>
+            </div>
+          </div>
+          <a href="../Tasks/tasks.html" style="text-decoration: none;"><div id="more">More</div></a> <!-- link to Tasks webpage -->
+        </div>
+
+        <div class="workload-dashboard">
+          <h2>Workload Distribution</h2>
+          <!-- Workload Chart -->
+          <canvas id="workload-chart" width="350" height="350"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Company Name. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom JS -->
+    <script src="employee.js"></script>
+  </body>
+</html>
